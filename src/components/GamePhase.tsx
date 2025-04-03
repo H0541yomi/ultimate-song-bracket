@@ -1,7 +1,7 @@
-import ItemSelection from "./ItemSelection";
 import { useEffect, useState } from "react";
 import { Phase, Side, SongData } from "../Types";
 import Button from "./Button";
+import SongDisplaySelection from "./SongDisplaySelection";
 
 interface Props {
   songs: any[];
@@ -114,18 +114,12 @@ const GamePhase = ({ songs, phaseSwitcher, returnSongs }: Props) => {
   return (
     <>
       <div className="container-horizontal">
-        <ItemSelection
-          onClick={() => {
+        <SongDisplaySelection onClick={() => {
             makeComparison(queue[0][queueLeftPos], Side.Left);
-          }}
-          songData={queue[0][queueLeftPos]}
-        />
-        <ItemSelection
-          onClick={() => {
+          }} song={queue[0][queueLeftPos]} />
+        <SongDisplaySelection onClick={() => {
             makeComparison(queue[1][queueRightPos], Side.Right);
-          }}
-          songData={queue.length > 1 && queue[1][queueRightPos]}
-        />
+          }} song={queue.length > 1 && queue[1][queueRightPos]} />
       </div>
       <div className="small-button">
         {history.length > 1 && (

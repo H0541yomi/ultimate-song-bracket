@@ -55,10 +55,7 @@ const App = () => {
 
   return (
     <>
-      <div className="flex justify-around items-center h-screen bg-gradient-to-br from-[#03045E] to-[#0077B6]">
-        <SongDisplaySelection song={dummySong} onClick={() => console.log("hi")}/>
-        <SongDisplaySelection song={dummySong2} onClick={() => console.log("hi")}/>
-      </div>
+      {screen}
     </>
   );
 };
