@@ -7,14 +7,18 @@ interface Props {
 const TextInput = ({ title, content, onChange }: Props) => {
   return (
     <>
-      <label htmlFor="playlist-input">{title}</label>
-      <input
-        className="border-1 border-gray-200 p-2 rounded-md"
-        type="text"
-        id="playlist-input"
-        value={content}
-        onChange={onChange}
-      />
+      <div className="flex justify-around items-center space-x-4">
+          <label htmlFor="playlist-input">
+            {title}
+          </label>
+          <input
+            className="border-1 border-gray-200 p-2 rounded-md"
+            type="text"
+            id="playlist-input"
+            value={content}
+            onChange={onChange}
+          />
+      </div>
     </>
   );
 };

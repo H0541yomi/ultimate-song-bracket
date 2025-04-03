@@ -58,7 +58,7 @@ const StartScreen = ({ phaseSwitcher, returnSongs }: Props) => {
       return {
         title: song.snippet.title,
         videoId: song.snippet.resourceId.videoId,
-        type: StreamingService.Youtube
+        type: StreamingService.Youtube,
       };
     });
     return songs;
@@ -67,10 +67,14 @@ const StartScreen = ({ phaseSwitcher, returnSongs }: Props) => {
   return (
     <>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="flex justify-center p-[2%] gap-[1%]">Ultimate Song Tournament</h1>
-        <div className="flex justify-center items-center gap-2 h-[4%] w-[25%]">
-          <TextInput title="Playlist Link:" content={playlistLink} onChange={(e) => setPlaylistLink(e.target.value)}/>
-        </div>
+        <h1 className="flex justify-center p-[2%] gap-[1%]">
+          Ultimate Song Tournament
+        </h1>
+        <TextInput
+          title="Playlist Link:"
+          content={playlistLink}
+          onChange={(e) => setPlaylistLink(e.target.value)}
+        />
         <div className="flex justify-center p-[2%] gap-[1%] normal-button">
           <button type="button" className="btn btn-primary" onClick={startGame}>
             Start!
