@@ -1,12 +1,26 @@
 import { useState } from "react";
 import StartScreen from "./components/StartScreen";
 import GamePhase from "./components/GamePhase";
-import { Phase } from "./Types";
+import { Phase, StreamingService } from "./Types";
 import Carousel from "./components/Carousel";
-import SongDisplay from "./components/SongDisplay";
-
+import SongDisplayResults from "./components/SongDisplayResults";
+import SongDisplaySelection from "./components/SongDisplaySelection";
 
 const App = () => {
+  const dummySong = {
+    title: "先駆者",
+    videoId: "RpvCh0EhAZM",
+    type: StreamingService.Youtube,
+  };
+  const dummySong2 = {
+    title: "ビビデバ / 星街すいせい(official)",
+    videoId: "8ZP5eqm4JqM",
+    type: StreamingService.Youtube
+  };
+  const dummySongList = [
+    { title: "先駆者", videoId: "RpvCh0EhAZM", type: StreamingService.Youtube },
+  ];
+
   const [phase, setPhase] = useState(Phase.Input);
   const [songs, setSongs] = useState<any[]>([]);
 
@@ -30,7 +44,7 @@ const App = () => {
       screen = (
         <Carousel>
           {songs.map((song) => {
-            return <SongDisplay song={song}></SongDisplay>;
+            return <SongDisplayResults song={song}></SongDisplayResults>;
           })}
         </Carousel>
       );
@@ -39,7 +53,14 @@ const App = () => {
       screen = <div>Error: Unknown game phase.</div>;
   }
 
-  return <>{screen}</>;
+  return (
+    <>
+      <div className="flex justify-around items-center h-screen bg-gradient-to-br from-[#03045E] to-[#0077B6]">
+        <SongDisplaySelection song={dummySong} onClick={() => console.log("hi")}/>
+        <SongDisplaySelection song={dummySong2} onClick={() => console.log("hi")}/>
+      </div>
+    </>
+  );
 };
 
 export default App;
@@ -47,3 +68,6 @@ export default App;
 // TODO:
 // calculate progress bar by calculating comparisons remaining (with recursion) and comparing it to original amount of comparisons
 // (derived from prop passed in (songs.length))
+// Show tournament list -> shuffling
+// Spotify support
+// Spotify UI

@@ -1,6 +1,7 @@
-import { Phase } from "../Types";
+import { Phase, StreamingService } from "../Types";
 import axios from "axios";
 import { useState } from "react";
+import TextInput from "./TextInput";
 
 interface Props {
   phaseSwitcher: (phase: Phase) => void;
@@ -54,27 +55,27 @@ const StartScreen = ({ phaseSwitcher, returnSongs }: Props) => {
     }
 
     songs = songs.map((song) => {
-      return { title: song.snippet.title, videoId: song.snippet.resourceId.videoId };
+      return {
+        title: song.snippet.title,
+        videoId: song.snippet.resourceId.videoId,
+        type: StreamingService.Youtube
+      };
     });
     return songs;
   };
 
   return (
     <>
-      <h1 className="center">Ultimate Song Tournament</h1>
-      <div className="center">
-        <label htmlFor="textInput">YouTube Playlist Link:</label>
-        <input
-          type="text"
-          id="textInput"
-          value={playlistLink}
-          onChange={(e) => setPlaylistLink(e.target.value)}
-        />
-      </div>
-      <div className="center normal-button">
-        <button type="button" className="btn btn-primary" onClick={startGame}>
-          Start!
-        </button>
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="flex justify-center p-[2%] gap-[1%]">Ultimate Song Tournament</h1>
+        <div className="flex justify-center items-center gap-2 h-[4%] w-[25%]">
+          <TextInput title="Playlist Link:" content={playlistLink} onChange={(e) => setPlaylistLink(e.target.value)}/>
+        </div>
+        <div className="flex justify-center p-[2%] gap-[1%] normal-button">
+          <button type="button" className="btn btn-primary" onClick={startGame}>
+            Start!
+          </button>
+        </div>
       </div>
     </>
   );

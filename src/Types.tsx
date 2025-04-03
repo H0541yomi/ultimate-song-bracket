@@ -9,7 +9,14 @@ export enum Phase {
   Results,
 }
 
+export enum StreamingService {
+  Youtube, 
+  Spotify, 
+  AppleMusic
+}
+
 export interface SongData {
     title: string,
-    videoId: string
+    videoId: string,
+    type: StreamingService
 }

@@ -1,6 +1,6 @@
 import { SongData } from "../Types";
 import Button from "./Button";
-import SongDisplay from "./SongDisplay";
+import SongDisplay from "./SongDisplayResults";
 
 interface Props {
   songData: SongData;
