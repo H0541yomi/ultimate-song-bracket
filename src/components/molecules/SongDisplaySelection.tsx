@@ -1,5 +1,5 @@
-import { SongData, StreamingService } from "../Types";
-import Button from "./Button";
+import { SongData, StreamingService } from "../../Types";
+import Button from "../atoms/Button";
 
 interface Props {
   song: SongData;
@@ -14,8 +14,8 @@ const SongDisplaySelection = ({ song, onClick }: Props) => {
       {
         result = (
           <>
-            <div className="@container flex flex-col justify-around items-center border rounded-sm h-[60%] w-[25%] bg-gradient-to-tl from-[#0077B6] to-[#00B4D8]">
-              <h3 className="@sm:text-lg @md:text-md @lg:text-lg text-center w-[100%] truncate">
+            <div className="@container flex flex-col justify-around items-center border rounded-md h-[70%] w-[25%] bg-gradient-to-tl from-[#0077B6] to-[#00B4D8]">
+              <h3 className="@sm:text-lg @md:text-md @lg:text-lg text-center w-[90%] truncate">
                 {song.title}
               </h3>
               <iframe

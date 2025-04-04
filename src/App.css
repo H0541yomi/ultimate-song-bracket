@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+  --color-rich-black: hsla(248, 24%, 7%, 1);
+  --color-raisin-black: hsla(250, 8%, 15%, 1);
+  --color-medium-blue: hsla(248, 92%, 43%, 1);
+  --color-ruddy-blue: hsla(211, 91%, 68%, 1);
+  --color-mauveine: hsla(287, 71%, 38%, 1);
+  --color-steel-pink: hsla(290, 72%, 53%, 1);
+  --color-turquoise: hsla(164, 63%, 64%, 1);
+  --color-turquoise-2: hsla(172, 76%, 69%, 1);
+  --color-platinum: hsla(312, 9%, 89%, 1);
+}
+
 .outline {
   outline: 1px solid #808080; 
   outline-offset: 1px; 

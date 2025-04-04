@@ -1,4 +1,4 @@
-import { SongData } from "../Types";
+import { SongData } from "../../Types";
 import useFitText from "use-fit-text";
 
 interface Props {

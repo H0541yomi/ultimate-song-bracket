@@ -1,10 +1,10 @@
 import { useState } from "react";
-import StartScreen from "./components/StartScreen";
-import GamePhase from "./components/GamePhase";
+import StartScreen from "./components/pages/StartScreen";
+import GamePhase from "./components/pages/GamePhase";
 import { Phase, StreamingService } from "./Types";
-import Carousel from "./components/Carousel";
-import SongDisplayResults from "./components/SongDisplayResults";
-import SongDisplaySelection from "./components/SongDisplaySelection";
+import Carousel from "./components/atoms/Carousel";
+import SongDisplayResults from "./components/molecules/SongDisplayResults";
+import SongDisplaySelection from "./components/molecules/SongDisplaySelection";
 
 const App = () => {
   const dummySong = {
@@ -15,11 +15,9 @@ const App = () => {
   const dummySong2 = {
     title: "ビビデバ / 星街すいせい(official)",
     videoId: "8ZP5eqm4JqM",
-    type: StreamingService.Youtube
+    type: StreamingService.Youtube,
   };
-  const dummySongList = [
-    { title: "先駆者", videoId: "RpvCh0EhAZM", type: StreamingService.Youtube },
-  ];
+  const dummySongList = [dummySong, dummySong2];
 
   const [phase, setPhase] = useState(Phase.Input);
   const [songs, setSongs] = useState<any[]>([]);
@@ -53,11 +51,8 @@ const App = () => {
       screen = <div>Error: Unknown game phase.</div>;
   }
 
-  return (
-    <>
-      {screen}
-    </>
-  );
+  // return <><GamePhase songs={dummySongList} phaseSwitcher={setPhase} returnSongs={setSongs}/></>;
+  return <>{screen}</>;
 };
 
 export default App;

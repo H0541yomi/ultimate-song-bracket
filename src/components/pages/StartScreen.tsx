@@ -1,7 +1,7 @@
-import { Phase, StreamingService } from "../Types";
+import { Phase, StreamingService } from "../../Types";
 import axios from "axios";
 import { useState } from "react";
-import TextInput from "./TextInput";
+import TextInput from "../atoms/TextInput";
 
 interface Props {
   phaseSwitcher: (phase: Phase) => void;
@@ -66,7 +66,7 @@ const StartScreen = ({ phaseSwitcher, returnSongs }: Props) => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-around items-center bg-gradient-to-br from-rich-black to-raisin-black h-screen text-platinum">
         <h1 className="flex justify-center p-[2%] gap-[1%]">
           Ultimate Song Tournament
         </h1>
